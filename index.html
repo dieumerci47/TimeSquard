@@ -7,33 +7,64 @@
     <link rel="stylesheet" href="Style.css" />
   </head>
   <body>
-    <h1>TimeSquard</h1>
-    <p>
-      TimeSquard est un petit jeu de Quiz qui sert à donner les capitales des
-      Pays !
-    </p>
-    <p>
-      Pour commencer vous devez choisir avec les pays de quel continent vous
-      voulez jouer <br />le but de ce jeu est de trouver les capitales des
-      capitales des Pays proposées.
-    </p>
-    <input type="radio" name="Afrique" value="Afrique" id="Afrique" />
-    <label for="Afrique">Afrique</label>
-    <input type="radio" name="Europe" value="Europe" id="Europe" />
-    <label for="Europe">Europe</label>
-    <input type="radio" name="Amérique" value="Amérique" id="Amérique" />
-    <label for="Amérique">Amérique</label>
-    <input type="radio" name="Asie" value="Asie" id="Asie" />
-    <label for="Asie">Asie</label>
+    <header>
+      <h1>TimeSquard</h1>
+      <h2>L'application De Quiz !</h2>
+      <h3>
+        Pour commencer vous devez choisir avec les pays de quel continent vous
+        voulez jouer <br />le but de ce jeu est de trouver les capitales des
+        capitales des Pays proposées.
+      </h3>
+    </header>
 
-    <p>
-      Quelle est la capitale de ce pays <br />
-      <span>TimeSquard</span>
-    </p>
-    <input type="text" id="InputReponse" placeholder="Saisir la reponse" />
-    <button type="button" id="BtnValider" onclick="Click()">Valider</button>
-    <p>Score : <span>0</span></p>
+    <main>
+      <div class="zoneOptions">
+        <p>
+          Choisissez votre option et tapez la proposition qui s'affiche dans le
+          champ en-dessous.
+        </p>
+        <div class="optionSource">
+          <input
+            type="radio"
+            name="optionSource"
+            value="Afrique"
+            id="Afrique"
+          />
+          <label for="Afrique">Afrique</label>
+          <input type="radio" name="optionSource" value="Europe" id="Europe" />
+          <label for="Europe">Europe</label>
+          <input
+            type="radio"
+            name="optionSource"
+            value="Amérique"
+            id="Amérique"
+          />
+          <label for="Amérique">Amérique</label>
+          <input type="radio" name="optionSource" value="Asie" id="Asie" />
+          <label for="Asie">Asie</label>
+        </div>
+      </div>
+
+      <div class="zoneProposition">Azerty</div>
+
+      <div class="zoneSaisie">
+        <input
+          type="text"
+          id="inputEcriture"
+          name="inputEcriture"
+          placeholder="Tapez votre réponse..."
+        />
+        <button id="btnValiderMot">Valider</button>
+      </div>
+
+      <div class="zoneScore">Votre score : <span>0</span></div>
+
+      <div class="zonePartage">
+        <button>Partager</button>
+      </div>
+    </main>
     <script src="Config.js"></script>
+    <script src="Main.js"></script>
     <script src="Script.js"></script>
   </body>
 </html>
