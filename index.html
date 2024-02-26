@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimeSquard</title>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <h1>TimeSquard</h1>
+    <p>
+      TimeSquard est un petit jeu de Quiz qui sert à donner les capitales des
+      Pays !
+    </p>
+    <p>
+      Pour commencer vous devez choisir avec les pays de quel continent vous
+      voulez jouer <br />le but de ce jeu est de trouver les capitales des
+      capitales des Pays proposées.
+    </p>
+    <input type="radio" name="Afrique" value="Afrique" id="Afrique" />
+    <label for="Afrique">Afrique</label>
+    <input type="radio" name="Europe" value="Europe" id="Europe" />
+    <label for="Europe">Europe</label>
+    <input type="radio" name="Amérique" value="Amérique" id="Amérique" />
+    <label for="Amérique">Amérique</label>
+    <input type="radio" name="Asie" value="Asie" id="Asie" />
+    <label for="Asie">Asie</label>
+
+    <p>
+      Quelle est la capitale de ce pays <br />
+      <span>TimeSquard</span>
+    </p>
+    <input type="text" id="InputReponse" placeholder="Saisir la reponse" />
+    <button type="button" id="BtnValider" onclick="Click()">Valider</button>
+    <p>Score : <span>0</span></p>
+    <script src="Config.js"></script>
+    <script src="Script.js"></script>
+  </body>
+</html>
