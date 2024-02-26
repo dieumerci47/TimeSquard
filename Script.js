@@ -5,4 +5,9 @@ let Paf = {
   Nigeria: "Abuja",
   Uganda: "Kampala",
 };
+let PaE = {
+  France: "paris",
+  espagne: "madrid",
+  italie: "rome",
+};
 console.log(Paf.Congo);
