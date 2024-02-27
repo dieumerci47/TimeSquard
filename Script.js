@@ -2,8 +2,9 @@
 function AfficherProposition(Proposition) {
   zoneProposition.innerHTML = Proposition;
 }
-function AfficherScore(score) {
+function AfficherScore(score, centage) {
   spanzoneScore.textContent = score;
+  Pourcentage.textContent = centage;
 }
 /*jeu A jouer*/
 
@@ -30,8 +31,10 @@ function lancerJeu() {
       AfficherProposition(Proposition[i]);
     }
     let A = `${Score}/${i}`;
+    PCtage = (Score / i) * 100;
+    let P = `${PCtage.toFixed(0)}`;
     // AfficherProposition(Proposition[i]);
-    AfficherScore(A);
+    AfficherScore(A, P);
   });
   let optionSource = document.querySelectorAll(".optionSource input");
   for (let index = 0; index < optionSource.length; index++) {

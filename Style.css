@@ -1,4 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  text-align: center;
+  h1 {
+    font-size: 2.3em;
+    padding: 20px;
+  }
+  h2 {
+    font-size: 1.6em;
+    padding: 10px;
+  }
+  h3 {
+    font-size: 1.3em;
+    padding: 5px;
+  }
+}
 body {
+  height: 100vh;
+  /* padding: 40px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  text-align: center;
+  .optionSource {
+    padding: 20px;
+  }
+  .zoneOptions p {
+    padding: 3px;
+    font-size: 1.25em;
+    .Nb {
+      color: blue;
+      font-weight: 800;
+    }
+  }
+  .optionSource label {
+    font-size: 1.3em;
+    color: blue;
+    font-weight: 600;
+  }
+  .optionSource [type="radio"] {
+    /* color: green; */
+    appearance: none;
+    -webkit-appearance: none; /* Pour les navigateurs basés sur WebKit */
+    width: 20px;
+    height: 20px;
+    border: 2px solid blue;
+    border-radius: 50%;
+    background-color: #fff;
+    outline: none;
+    margin-right: 10px; /* Marge à droite pour l'espacement */
+  }
+}
+.optionSource [type="radio"]:checked {
+  background-color: blue; /* Fond bleu pour les radios cochés */
+  border-color: blue; /* Bordure bleue pour les radios cochés */
+}
+.zoneProposition {
+  background-color: blue;
+  padding: 20px;
+  font-size: 1.5em;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 15px;
+}
+.zoneSaisie {
+  padding: 20px;
+  input[type="text"] {
+    width: 100vh;
+    padding: 0.7em;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 15px;
+  }
+}
+#btnValiderMot {
+  padding: 0.9em;
+  border: none;
+  background-color: blue;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 0.95em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.zoneScore {
   background-color: #fff;
-  color: black;
+  padding: 0.3em;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 20px;
+}
+.zonePartage {
+  padding: 20px;
+  button {
+    padding: 0.9em;
+    font-size: 0.95em;
+  }
 }
