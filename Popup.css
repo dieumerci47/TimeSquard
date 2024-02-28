@@ -1,120 +1,57 @@
-/**
-  * Gestion des popups
-  */
-body {
-  body {
-    --color-primary: #f76c5e;
-    --color-secondary: #f68e5f;
-    --color-tertiary: #ffeee6;
-  }
-}
 .popupBackground {
-  /* Mise en forme des formulaires */
-  input[type="radio"] {
-    filter: grayscale(1); /* Grayscale passe le bouton en niveau de gris */
-  }
-
-  input[type="text"],
-  input[type="email"] {
-    width: 100%;
-    margin-right: 10px;
-    padding: 5px;
-    border: none;
-    border-radius: 8px;
-    font-size: 17px;
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--color-primary);
-  }
-
-  input[type="text"]::placeholder,
-  input[type="email"]::placeholder {
-    color: var(--color-secondary);
-    opacity: 50%;
-  }
-
-  button {
-    padding: 5px;
-    border: none;
-    border-radius: 8px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--color-secondary);
-    background-color: white;
-  }
-
-  button:hover {
-    color: var(--color-primary);
-    background-color: var(--color-tertiary);
-    cursor: pointer;
-  }
-
-  button:focus {
-    background-color: var(--color-tertiary);
-    border: 3px solid var(--color-primary);
-    padding: 2px;
-  }
-}
-.popupBackground {
-  display: none;
   position: fixed;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.popup {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  flex-wrap: wrap;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Par défaut, le popupBackground est caché */
   justify-content: center;
   align-items: center;
-  width: 300px;
-  padding: 20px;
-  text-align: center;
-  color: white;
-  font-size: 17px;
-  font-weight: 500;
-  background-color: #f76c5e;
-  border-radius: 30px;
   z-index: 1;
 }
 
-.active {
-  display: flex !important;
+.popupBackground.active {
+  display: flex; /* Affiche le popupBackground quand il a la classe "active" */
 }
 
-.popup p {
-  width: 100%;
-  margin-bottom: 20px;
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  max-width: 80%;
 }
 
-.popup div {
-  font-size: 25px;
-  padding: 5px;
-  padding-bottom: 15px;
+.popup form {
+  display: flex;
+  flex-direction: column;
 }
 
-.popup input {
+.popup label {
   margin-bottom: 10px;
 }
 
+.popup input[type="text"],
+.popup input[type="email"],
 .popup button {
-  margin: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-/** 
-   * Responsive
-   */
+.popup button {
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
-/* En dessous de 1200 px */
-/*   @media screen and (max-width: 1200px) {
-    main {
-      width: 60%;
-      padding: 30px;
-    }
-  }
-   */
+.popup button:hover {
+  background-color: darkblue;
+}
+
+.popup button:focus {
+  outline: none;
+}
