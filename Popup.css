@@ -1,0 +1,120 @@
+/**
+  * Gestion des popups
+  */
+body {
+  body {
+    --color-primary: #f76c5e;
+    --color-secondary: #f68e5f;
+    --color-tertiary: #ffeee6;
+  }
+}
+.popupBackground {
+  /* Mise en forme des formulaires */
+  input[type="radio"] {
+    filter: grayscale(1); /* Grayscale passe le bouton en niveau de gris */
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    margin-right: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-primary);
+  }
+
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder {
+    color: var(--color-secondary);
+    opacity: 50%;
+  }
+
+  button {
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-secondary);
+    background-color: white;
+  }
+
+  button:hover {
+    color: var(--color-primary);
+    background-color: var(--color-tertiary);
+    cursor: pointer;
+  }
+
+  button:focus {
+    background-color: var(--color-tertiary);
+    border: 3px solid var(--color-primary);
+    padding: 2px;
+  }
+}
+.popupBackground {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  background-color: #f76c5e;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.active {
+  display: flex !important;
+}
+
+.popup p {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.popup div {
+  font-size: 25px;
+  padding: 5px;
+  padding-bottom: 15px;
+}
+
+.popup input {
+  margin-bottom: 10px;
+}
+
+.popup button {
+  margin: 5px;
+}
+
+/** 
+   * Responsive
+   */
+
+/* En dessous de 1200 px */
+/*   @media screen and (max-width: 1200px) {
+    main {
+      width: 60%;
+      padding: 30px;
+    }
+  }
+   */

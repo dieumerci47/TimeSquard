@@ -5,6 +5,17 @@ function AfficherProposition(Proposition) {
 function AfficherScore(score, centage) {
   spanzoneScore.textContent = score;
   Pourcentage.textContent = centage;
+  if (centage < 50) {
+    Pourcentage.style.color = "red";
+    Pourcentage.style.fontWeight = 900;
+    Sym.style.color = "red";
+    Sym.style.fontWeight = 900;
+  } else {
+    Pourcentage.style.color = "green";
+    Pourcentage.style.fontWeight = 900;
+    Sym.style.color = "green";
+    Sym.style.fontWeight = 900;
+  }
 }
 /*jeu A jouer*/
 

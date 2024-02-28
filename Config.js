@@ -1,24 +1,221 @@
 /*Declaration de la liste des pays */
-let ListePaysAfrique = ["Congo", "Cameroun", "RDC", "Gabon", "CIV", "Mali"];
-let ListePayEurope = ["France", "Italie", "Suisse", "Angleterre", "Allemagne"];
-let ListePaysAmerique = ["USA", "Colombie", "Brazil", "Argentine"];
-let ListePaysAsie = ["DGG", "Chine", "japon", "Corre"];
-
+let ListePaysAfrique = [
+  "Algérie",
+  "Angola",
+  "Bénin",
+  "Botswana",
+  "Burkina Faso",
+  "Burundi",
+  "Cameroun",
+  "Cap-Vert",
+  "République centrafricaine",
+  "Tchad",
+  "Comores",
+  "Congo",
+  "République démocratique du Congo",
+  "Djibouti",
+  "Égypte",
+  "Guinée équatoriale",
+  "Érythrée",
+  "Éthiopie",
+  "Gabon",
+  "Gambie",
+  "Ghana",
+  "Guinée",
+  "Guinée-Bissau",
+  "Côte d'Ivoire",
+  "Kenya",
+];
+let ListePayEurope = [
+  "Allemagne",
+  "Autriche",
+  "Belgique",
+  "Bulgarie",
+  "Croatie",
+  "Danemark",
+  "Espagne",
+  "Finlande",
+  "France",
+  "Grèce",
+  "Hongrie",
+  "Irlande",
+  "Islande",
+  "Italie",
+  "Lettonie",
+  "Lituanie",
+  "Luxembourg",
+  "Malte",
+  "Norvège",
+  "Pays-Bas",
+  "Pologne",
+  "Portugal",
+  "Roumanie",
+  "Royaume-Uni",
+  "Russie",
+  "Slovaquie",
+  "Slovénie",
+  "Suède",
+  "Suisse",
+  "Turquie",
+];
+let ListePaysAmerique = [
+  "Antigua-et-Barbuda",
+  "Argentine",
+  "Bahamas",
+  "Barbade",
+  "Belize",
+  "Bolivie",
+  "Brésil",
+  "Canada",
+  "Chili",
+  "Colombie",
+  "Costa Rica",
+  "Cuba",
+  "Dominique",
+  "République dominicaine",
+  "Équateur",
+  "Salvador",
+  "Grenade",
+  "Guatemala",
+  "Guyana",
+  "Haïti",
+];
+let ListePaysAsie = [
+  "Afghanistan",
+  "Arménie",
+  "Azerbaïdjan",
+  "Bahreïn",
+  "Bangladesh",
+  "Bhoutan",
+  "Brunéi Darussalam",
+  "Cambodge",
+  "Chine",
+  "Chypre",
+  "Géorgie",
+  "Inde",
+  "Indonésie",
+  "Iran",
+  "Iraq",
+  "Israël",
+];
 /*----------------------------------------------------------------*/
 /*Declaration des capitales des pays*/
-let CapitaleAfrique = [
-  "brazzaville",
-  "yaounde",
-  "kin",
-  "libreville",
-  "abidjan",
-  "bamako",
+let CapitaleAfriquess = [
+  "Alger",
+  "Luanda",
+  "Porto-Novo",
+  "Gaborone",
+  "Ouagadougou",
+  "Bujumbura",
+  "Yaoundé",
+  "Praia",
+  "Bangui",
+  "N'Djamena",
+  "Moroni",
+  "Brazzaville",
+  "Kinshasa",
+  "Djibouti",
+  "Le Caire",
+  "Malabo",
+  "Asmara",
+  "Addis-Abeba",
+  "Libreville",
+  "Banjul",
+  "Accra",
+  "Conakry",
+  "Bissau",
+  "Yamoussoukro",
+  "Nairobi",
 ];
-let CapitaleEurope = ["paris", "rome", "zurich", "londres", "berlin"];
-let CapitaleAmerique = ["washington", "bogota", "rio", "aires"];
-let CapitaleAsie = ["CHI", "PEKINTA", "COR"];
-
+let CapitaleEuropess = [
+  "Berlin",
+  "Vienne",
+  "Bruxelles",
+  "Sofia",
+  "Zagreb",
+  "Copenhague",
+  "Madrid",
+  "Helsinki",
+  "Paris",
+  "Athènes",
+  "Budapest",
+  "Dublin",
+  "Reykjavik",
+  "Rome",
+  "Riga",
+  "Vilnius",
+  "Luxembourg",
+  "La Valette",
+  "Oslo",
+  "Amsterdam",
+  "Varsovie",
+  "Lisbonne",
+  "Bucarest",
+  "Londres",
+  "Moscou",
+  "Bratislava",
+  "Ljubljana",
+  "Stockholm",
+  "Berne",
+  "Ankara",
+];
+let CapitaleAmeriquess = [
+  "Saint John's",
+  "Buenos Aires",
+  "Nassau",
+  "Bridgetown",
+  "Belmopan",
+  "La Paz",
+  "Brasilia",
+  "Ottawa",
+  "Santiago",
+  "Bogotá",
+  "San José",
+  "La Havane",
+  "Roseau",
+  "Saint-Domingue",
+  "Quito",
+  "San Salvador",
+  "Saint-Georges",
+  "Guatemala",
+  "Georgetown",
+  "Port-au-Prince",
+];
+let CapitaleAsiess = [
+  "Kaboul",
+  "Erevan",
+  "Bakou",
+  "Manama",
+  "Dhaka",
+  "Thimphu",
+  "Bandar Seri Begawan",
+  "Phnom Penh",
+  "Pékin",
+  "Nicosie",
+  "Tbilissi",
+  "New Delhi",
+  "Jakarta",
+  "Téhéran",
+  "Bagdad",
+  "Jérusalem",
+];
 let PAF = Array.from(ListePaysAfrique, (item) => item.trim().toUpperCase());
 let PEU = Array.from(ListePayEurope, (item) => item.trim().toUpperCase());
 let PAM = Array.from(ListePaysAmerique, (item) => item.trim().toUpperCase());
 let PAS = Array.from(ListePaysAsie, (item) => item.trim().toUpperCase());
+
+let CapitaleAfrique = Array.from(CapitaleAfriquess, (item) =>
+  item.trim().toLowerCase()
+);
+
+let CapitaleEurope = Array.from(CapitaleEuropess, (item) =>
+  item.trim().toLowerCase()
+);
+
+let CapitaleAmerique = Array.from(CapitaleAmeriquess, (item) =>
+  item.trim().toLowerCase()
+);
+
+let CapitaleAsie = Array.from(CapitaleAsiess, (item) =>
+  item.trim().toLowerCase()
+);

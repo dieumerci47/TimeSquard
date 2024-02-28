@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TimeSquard</title>
     <link rel="stylesheet" href="Style.css" />
+    <link rel="stylesheet" href="Popup.css" />
   </head>
   <body>
     <header>
@@ -26,37 +27,54 @@
             >NB: Une Fois L'option Choisis Vous Ne Pouvez Plus Changé</span
           >
         </p>
-        <div class="optionSource">
-          <input
-            type="radio"
-            name="optionSource"
-            value="Afrique"
-            id="Afrique"
-          />
-          <label for="Afrique">Afrique</label>
-          <input type="radio" name="optionSource" value="Europe" id="Europe" />
-          <label for="Europe">Europe</label>
-          <input
-            type="radio"
-            name="optionSource"
-            value="Amérique"
-            id="Amérique"
-          />
-          <label for="Amérique">Amérique</label>
-          <input type="radio" name="optionSource" value="Asie" id="Asie" />
-          <label for="Asie">Asie</label>
+        <div class="optionSource" id="radio-input">
+          <label>
+            <input
+              value="Afrique"
+              name="optionSource"
+              id="Afrique"
+              type="radio"
+            />
+            <span>Afrique</span>
+          </label>
+          <label>
+            <input
+              value="Europe"
+              name="optionSource"
+              id="Europe"
+              type="radio"
+            />
+            <span>Europe</span>
+          </label>
+          <label>
+            <input
+              value="Amérique"
+              name="optionSource"
+              id="Amérique"
+              type="radio"
+            />
+            <span>Amérique</span>
+          </label>
+          <label>
+            <input value="Asie" name="optionSource" id="Asie" type="radio" />
+            <span>Asie</span>
+          </label>
+          <span class="selection"></span>
         </div>
       </div>
 
       <div class="zoneProposition">Azerty</div>
-
-      <div class="zoneSaisie">
-        <input
-          type="text"
-          id="inputEcriture"
-          name="inputEcriture"
-          placeholder="Tapez votre réponse..."
-        />
+      <div class="ZR">
+        <div class="zoneSaisie">
+          <input
+            class="input input-alt"
+            placeholder="Tapez votre réponse..."
+            id="inputEcriture"
+            type="text"
+            name="inputEcriture"
+          />
+          <span class="input-border input-border-alt"></span>
+        </div>
         <button id="btnValiderMot">Valider</button>
       </div>
 
@@ -64,16 +82,54 @@
         Votre score : <span>0/0</span>
         <div class="Pourcentage">
           Taux de Reussite :
-          <span>0</span>%
+          <span>0</span><span class="Sym">%</span>
         </div>
       </div>
 
       <div class="zonePartage">
-        <button>Partager</button>
+        <button>
+          <div class="svg-wrapper-1">
+            <div class="svg-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  fill="currentColor"
+                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <span>Partager</span>
+        </button>
+      </div>
+      <div class="popupBackground">
+        <div class="popup">
+          <div>Partagez votre score</div>
+          <form novalidate>
+            <label for="nom">Votre nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" />
+            <label for="email"
+              >Avec qui voulez-vous partager votre score ?</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="nom@domaine.com"
+            />
+            <button id="btnEnvoyerMail" type="submit">Envoyer</button>
+          </form>
+        </div>
       </div>
     </main>
     <script src="Config.js"></script>
     <script src="Main.js"></script>
+    <script src="Popup.js"></script>
     <script src="Script.js"></script>
   </body>
 </html>
