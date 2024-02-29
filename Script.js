@@ -2,6 +2,10 @@
 function AfficherProposition(Proposition) {
   zoneProposition.innerHTML = Proposition;
 }
+function AfficherEmail(nom, email, score) {
+  let Message = `mailto:${email}?subject=Partage Du Score&body=Salut je suis ${nom} et je viens de faire un score de ${score} sur l'application TimeSquard !`;
+  location.href = Message;
+}
 function AfficherScore(score, centage) {
   spanzoneScore.textContent = score;
   Pourcentage.textContent = centage;
@@ -25,6 +29,7 @@ function lancerJeu() {
   let Capitale;
   let i = 0;
   let Score = 0;
+  let P;
   AfficherProposition("");
 
   btnValiderMot.addEventListener("click", () => {
@@ -43,7 +48,7 @@ function lancerJeu() {
     }
     let A = `${Score}/${i}`;
     PCtage = (Score / i) * 100;
-    let P = `${PCtage.toFixed(0)}`;
+    P = `${PCtage.toFixed(0)}`;
     // AfficherProposition(Proposition[i]);
     AfficherScore(A, P);
   });
@@ -77,5 +82,27 @@ function lancerJeu() {
     }
     AfficherProposition(Proposition[i]);
   }
+  function VerrifierNom(nom) {
+    if (nom < 2) {
+      throw new Error("Mot trop cour");
+    }
+  }
+  function VerrifierMail(email) {
+    let Regex = new RegExp("[a-z0-9_-]+@[a-z0-9_-]+\\.[a-z0-9_-]");
+    if (!Regex.test(email)) {
+      throw new Error("Email invalide");
+    }
+  }
+  Form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let ScoreEmail = `${Score}/${i} soit un taux de ${P}%`;
+    try {
+      VerrifierNom(Nom.value);
+      VerrifierMail(Email.value);
+      AfficherEmail(Nom.value, Email.value, ScoreEmail);
+    } catch (e) {
+      console.log(e.message);
+    }
+  });
 }
 lancerJeu();

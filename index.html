@@ -6,6 +6,7 @@
     <title>TimeSquard</title>
     <link rel="stylesheet" href="Style.css" />
     <link rel="stylesheet" href="Popup.css" />
+    <link rel="stylesheet" href="Form.css" />
   </head>
   <body>
     <header>
@@ -109,20 +110,27 @@
       </div>
       <div class="popupBackground">
         <div class="popup">
-          <div>Partagez votre score</div>
+          <div class="form-heading">
+            <h2>Partagez votre score</h2>
+          </div>
           <form novalidate>
             <label for="nom">Votre nom</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" />
+            <div class="Dom">
+              <input type="text" id="nom" name="nom" placeholder="Votre nom" />
+            </div>
             <label for="email"
               >Avec qui voulez-vous partager votre score ?</label
             >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="nom@domaine.com"
-            />
-            <button id="btnEnvoyerMail" type="submit">Envoyer</button>
+            <div class="Dom">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email@gmail.com"
+              />
+            </div>
+
+              <button id="btnEnvoyerMail" type="submit">Envoyer</button>
           </form>
         </div>
       </div>
