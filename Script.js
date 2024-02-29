@@ -82,6 +82,9 @@ function lancerJeu() {
     }
     AfficherProposition(Proposition[i]);
   }
+  function AfficherMessageErreur(error){
+    console.log(error);
+  }
   function VerrifierNom(nom) {
     if (nom < 2) {
       throw new Error("Mot trop cour");
@@ -101,7 +104,7 @@ function lancerJeu() {
       VerrifierMail(Email.value);
       AfficherEmail(Nom.value, Email.value, ScoreEmail);
     } catch (e) {
-      console.log(e.message);
+      AfficherMessageErreur(e.message)
     }
   });
 }
