@@ -1,139 +1,147 @@
-/*Afficger Proposition*/
+// Affiche la proposition
 function AfficherProposition(Proposition) {
   zoneProposition.innerHTML = Proposition;
 }
-function AfficherEmail(nom, email, score) {
-  let Message = `mailto:${email}?subject=Partage Du Score&body=Salut je suis ${nom} et je viens de faire un score de ${score} sur l'application TimeSquard !`;
-  location.href = Message;
-}
-function AfficherScore(score, centage) {
+
+// Affiche le score et le pourcentage
+function AfficherScore(score, pourcentage) {
   spanzoneScore.textContent = score;
-  Pourcentage.textContent = centage;
-  if (centage < 50) {
-    Pourcentage.style.color = "red";
-    Pourcentage.style.fontWeight = 900;
-    Sym.style.color = "red";
-    Sym.style.fontWeight = 900;
+  Pourcentage.textContent = pourcentage;
+  Pourcentage.style.color = pourcentage < 50 ? "red" : "green";
+  Pourcentage.style.fontWeight = 900;
+  Sym.style.color = Pourcentage.style.color;
+  Sym.style.fontWeight = Pourcentage.style.fontWeight;
+}
+
+// Affiche le message d'erreur
+function AfficherMessageErreur(error) {
+  let spanErrorMessage = document.getElementById("spanerrormessage");
+  if (!spanErrorMessage) {
+    let texteErreur = document.querySelector(".Er");
+    spanErrorMessage = document.createElement("span");
+    spanErrorMessage.id = "spanerrormessage";
+    texteErreur.appendChild(spanErrorMessage);
+  }
+  spanErrorMessage.innerText = error;
+  console.log(error);
+}
+
+// Vérifie la validité du nom
+function VerifierNom(DomE, nom) {
+  if (nom.length < 2) {
+    DomE.classList.remove("DomE");
+    DomE.classList.add("Error");
+    throw new Error("Le nom est trop court");
   } else {
-    Pourcentage.style.color = "green";
-    Pourcentage.style.fontWeight = 900;
-    Sym.style.color = "green";
-    Sym.style.fontWeight = 900;
+    DomE.classList.remove("Error");
+    DomE.classList.add("DomE");
   }
 }
-/*jeu A jouer*/
 
-/*function lancer jey */
-function lancerJeu() {
-  let Proposition;
-  let Capitale;
+// Vérifie la validité de l'email
+function VerifierMail(Dom, email) {
+  let regex = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]");
+  if (!regex.test(email)) {
+    Dom.classList.remove("Dom");
+    Dom.classList.add("Error");
+    throw new Error("L'email est invalide");
+  } else {
+    Dom.classList.remove("Error");
+    Dom.classList.add("Dom");
+  }
+}
+
+// Envoie un email avec les détails du score
+function EnvoyerEmail(nom, email, score) {
+  let ip = `http://192.168.34.249:7500`;
+  let message = `mailto:${email}?subject=Partage Du Score&body=Salut je suis ${nom} et je viens de faire un score de ${score} sur l'application TimeSquard! voici lien ${ip}`;
+  location.href = message;
+}
+
+// Lance le jeu
+function LancerJeu() {
   let i = 0;
-  let Score = 0;
-  let P;
+  let score = 0;
+  let proposition;
+  let capitale;
+  let p;
+
   AfficherProposition("");
 
   btnValiderMot.addEventListener("click", () => {
-    let Renponse = inputEcriture.value.trim().toLowerCase();
-    if (Renponse === Capitale[i]) {
-      Score++;
+    let reponse = inputEcriture.value.trim().toLowerCase();
+    if (reponse === capitale[i]) {
+      score++;
     }
     inputEcriture.value = "";
     i++;
-    if (Proposition[i] === undefined) {
+    if (proposition[i] === undefined) {
       AfficherProposition("Fin Du Jeu");
       btnValiderMot.style.backgroundColor = "red";
       btnValiderMot.disabled = true;
     } else {
-      AfficherProposition(Proposition[i]);
+      AfficherProposition(proposition[i]);
     }
-    let A = `${Score}/${i}`;
-    PCtage = (Score / i) * 100;
-    P = `${PCtage.toFixed(0)}`;
-    // AfficherProposition(Proposition[i]);
-    AfficherScore(A, P);
+    let a = `${score}/${i}`;
+    p = ((score / i) * 100).toFixed(0);
+    AfficherScore(a, p);
   });
-  let optionSource = document.querySelectorAll(".optionSource input");
-  for (let index = 0; index < optionSource.length; index++) {
-    let Choix;
-    optionSource[index].addEventListener("click", () => {
-      Choix = optionSource[index].value;
-      ChoixAjouer(Choix);
 
-      for (let j = 0; j < optionSource.length; j++) {
-        if (j !== index) {
-          optionSource[j].disabled = true;
+  let optionsSource = document.querySelectorAll(".optionSource input");
+  optionsSource.forEach((option) => {
+    option.addEventListener("click", () => {
+      let choix = option.value;
+      ChoixAjouer(choix);
+      optionsSource.forEach((o) => {
+        if (o !== option) {
+          o.disabled = true;
         }
-      }
+      });
     });
-  }
-  function ChoixAjouer(Choix) {
-    if (Choix === "Afrique") {
-      Proposition = PAF;
-      Capitale = CapitaleAfrique;
-    } else if (Choix === "Europe") {
-      Proposition = PEU;
-      Capitale = CapitaleEurope;
-    } else if (Choix === "Asie") {
-      Proposition = PAS;
-      Capitale = CapitaleAsie;
-    } else if (Choix === "Amérique") {
-      Proposition = PAM;
-      Capitale = CapitaleAmerique;
-    }
-    AfficherProposition(Proposition[i]);
-  }
-  function AfficherMessageErreur(error){
-    let spanerrormessage=document.getElementById("spanerrormessage")
-    if(!spanerrormessage){
-      let TexteErreur=document.querySelector(".Er")
-      spanerrormessage=document.createElement("span");
-      spanerrormessage.id="spanerrormessage"
-  TexteErreur.appendChild(spanerrormessage)
-}
-spanerrormessage.innerText=error
-    console.log(error);
-  }
-  function VerrifierNom(DomE,nom) {
-    if (nom.length < 2) {
+  });
 
-      DomE.classList.remove("DomE")
-      DomE.classList.add("Error")
-      throw new Error("Mot trop cour");
+  function ChoixAjouer(choix) {
+    switch (choix) {
+      case "Afrique":
+        proposition = PAF;
+        capitale = CapitaleAfrique;
+        break;
+      case "Europe":
+        proposition = PEU;
+        capitale = CapitaleEurope;
+        break;
+      case "Asie":
+        proposition = PAS;
+        capitale = CapitaleAsie;
+        break;
+      case "Amérique":
+        proposition = PAM;
+        capitale = CapitaleAmerique;
+        break;
+      default:
+        break;
     }
-    else{
-      DomE.classList.remove("Error")
-      DomE.classList.add("DomE")
-    }
+    AfficherProposition(proposition[i]);
   }
-  function VerrifierMail(Dom,email) {
-    let Regex = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]");
-    if (!Regex.test(email)) {
-      
-      Dom.classList.remove("Dom")
-      Dom.classList.add("Error")
-      throw new Error("Email invalide");
-    }else{
-      Dom.classList.remove("Error")
-      Dom.classList.add("Dom")
-    }
-  }
+
   Form.addEventListener("submit", (e) => {
     e.preventDefault();
-    let ScoreEmail = `${Score}/${i} soit un taux de ${P}%`;
+    let scoreEmail = `${score}/${i} soit un taux de ${p}%`;
     try {
-      Nom.addEventListener("change",(e)=>{
+      Nom.addEventListener("change", (e) => {
         console.log(e.target.value);
-      })
-      VerrifierNom(DomE,Nom.value);
-      VerrifierMail(Dom,Email.value);
-      AfficherEmail(Nom.value, Email.value, ScoreEmail);
-      AfficherMessageErreur("")
-      popupBackground.classList.remove("active")
-      Nom.value=""
-      Email.value=""
+      });
+      VerifierNom(DomE, Nom.value);
+      VerifierMail(Dom, Email.value);
+      EnvoyerEmail(Nom.value, Email.value, scoreEmail);
+      AfficherMessageErreur("");
+      popupBackground.classList.remove("active");
+      Nom.value = "";
+      Email.value = "";
     } catch (e) {
-      AfficherMessageErreur(e.message)
-    } 
+      AfficherMessageErreur(e.message);
+    }
   });
 }
-lancerJeu();
+
+LancerJeu();
