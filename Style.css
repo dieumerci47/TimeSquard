@@ -181,6 +181,7 @@ main {
   font-size: 0.9rem;
   background-color: #0a0a0a;
   width: 100%;
+  text-align: center;
   box-sizing: border-box;
   border-radius: 10px;
   padding-inline: 0.5em;

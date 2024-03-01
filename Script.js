@@ -83,29 +83,57 @@ function lancerJeu() {
     AfficherProposition(Proposition[i]);
   }
   function AfficherMessageErreur(error){
+    let spanerrormessage=document.getElementById("spanerrormessage")
+    if(!spanerrormessage){
+      let TexteErreur=document.querySelector(".Er")
+      spanerrormessage=document.createElement("span");
+      spanerrormessage.id="spanerrormessage"
+  TexteErreur.appendChild(spanerrormessage)
+}
+spanerrormessage.innerText=error
     console.log(error);
   }
-  function VerrifierNom(nom) {
-    if (nom < 2) {
+  function VerrifierNom(DomE,nom) {
+    if (nom.length < 2) {
+
+      DomE.classList.remove("DomE")
+      DomE.classList.add("Error")
       throw new Error("Mot trop cour");
     }
+    else{
+      DomE.classList.remove("Error")
+      DomE.classList.add("DomE")
+    }
   }
-  function VerrifierMail(email) {
-    let Regex = new RegExp("[a-z0-9_-]+@[a-z0-9_-]+\\.[a-z0-9_-]");
+  function VerrifierMail(Dom,email) {
+    let Regex = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]");
     if (!Regex.test(email)) {
+      
+      Dom.classList.remove("Dom")
+      Dom.classList.add("Error")
       throw new Error("Email invalide");
+    }else{
+      Dom.classList.remove("Error")
+      Dom.classList.add("Dom")
     }
   }
   Form.addEventListener("submit", (e) => {
     e.preventDefault();
     let ScoreEmail = `${Score}/${i} soit un taux de ${P}%`;
     try {
-      VerrifierNom(Nom.value);
-      VerrifierMail(Email.value);
+      Nom.addEventListener("change",(e)=>{
+        console.log(e.target.value);
+      })
+      VerrifierNom(DomE,Nom.value);
+      VerrifierMail(Dom,Email.value);
       AfficherEmail(Nom.value, Email.value, ScoreEmail);
+      AfficherMessageErreur("")
+      popupBackground.classList.remove("active")
+      Nom.value=""
+      Email.value=""
     } catch (e) {
       AfficherMessageErreur(e.message)
-    }
+    } 
   });
 }
 lancerJeu();

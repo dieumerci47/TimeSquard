@@ -8,3 +8,5 @@ let btnEnvoyerMail = document.querySelector("#btnEnvoyerMail");
 let Form = document.querySelector("form");
 let Nom = document.getElementById("nom");
 let Email = document.getElementById("email");
+let DomE=document.querySelector(".DomE")
+let Dom=document.querySelector(".Dom")
